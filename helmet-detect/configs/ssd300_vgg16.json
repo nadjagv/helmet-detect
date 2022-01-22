@@ -1,0 +1,167 @@
+{
+    "model": {
+        "extra_box_for_ar_1": true,
+        "l2_regularization": 0.0005,
+        "kernel_initializer": "he_normal",
+        "input_shape": [
+            300,
+            300,
+            3
+        ],
+        "default_boxes": {
+            "variances": [
+                0.1,
+                0.1,
+                0.2,
+                0.2
+            ],
+            "min_scale": 0.2,
+            "max_scale": 0.9,
+            "layers": [
+                {
+                    "name": "conv4_3",
+                    "size": 38,
+                    "offset": [
+                        0.5,
+                        0.5
+                    ],
+                    "aspect_ratios": [
+                        1.0,
+                        2.0,
+                        0.5
+                    ]
+                },
+                {
+                    "name": "fc7",
+                    "size": 19,
+                    "offset": [
+                        0.5,
+                        0.5
+                    ],
+                    "aspect_ratios": [
+                        1.0,
+                        2.0,
+                        0.5,
+                        3.0,
+                        0.33
+                    ]
+                },
+                {
+                    "name": "conv8_2",
+                    "size": 10,
+                    "offset": [
+                        0.5,
+                        0.5
+                    ],
+                    "aspect_ratios": [
+                        1.0,
+                        2.0,
+                        0.5,
+                        3.0,
+                        0.33
+                    ]
+                },
+                {
+                    "name": "conv9_2",
+                    "size": 5,
+                    "offset": [
+                        0.5,
+                        0.5
+                    ],
+                    "aspect_ratios": [
+                        1.0,
+                        2.0,
+                        0.5,
+                        3.0,
+                        0.33
+                    ]
+                },
+                {
+                    "name": "conv10_2",
+                    "size": 3,
+                    "offset": [
+                        0.5,
+                        0.5
+                    ],
+                    "aspect_ratios": [
+                        1.0,
+                        2.0,
+                        0.5
+                    ]
+                },
+                {
+                    "name": "conv11_2",
+                    "size": 1,
+                    "offset": [
+                        0.5,
+                        0.5
+                    ],
+                    "aspect_ratios": [
+                        1.0,
+                        2.0,
+                        0.5
+                    ]
+                }
+            ]
+        },
+        "num_classes": 5,
+        "label_maps": [
+            "none",
+            "yellow",
+            "red",
+            "blue",
+            "white"
+        ]
+    },
+    "training": {
+        "optimizer": {
+            "name": "sgd",
+            "lr": 0.001,
+            "momentum": 0.9,
+            "decay": 0.0005,
+            "nesterov": false
+        },
+        "batch_size": 2,
+        "epochs": 20,
+        "shuffle": true,
+        "match_threshold": 0.5,
+        "neutral_threshold": 0.3,
+        "min_negative_boxes": 0,
+        "negative_boxes_ratio": 3,
+        "alpha": 1,
+        "perform_augmentation": true,
+        "data": {
+            "training_split_file": "datasets/train/split.txt",
+            "validation_split_file": "datasets/train/split.txt",
+            
+            "images_dir": "datasets/train/img/",
+            "labels_dir": "datasets/train/lbl/"
+        }
+    },
+    "test": {
+        "optimizer": {
+            "name": "sgd",
+            "lr": 0.001,
+            "momentum": 0.9,
+            "decay": 0.0005,
+            "nesterov": false
+        },
+        "batch_size": 2,
+        "epochs": 20,
+        "shuffle": true,
+        "match_threshold": 0.5,
+        "neutral_threshold": 0.3,
+        "min_negative_boxes": 0,
+        "negative_boxes_ratio": 3,
+        "alpha": 1,
+        "perform_augmentation": true,
+        "data": {
+            "test_split_file": "datasets/test/split.txt",
+            
+            "images_dir": "datasets/test/img/",
+            "labels_dir": "datasets/test/lbl/"
+        }
+    },
+    "evaluation": {},
+    "inference": {}
+}
