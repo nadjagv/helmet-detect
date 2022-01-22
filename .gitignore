@@ -129,4 +129,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-*.h5
+#*.h5
+helmet-detect/cp_01_14.5754.h5
+helmet-detect/base_networks/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
+helmet-detect/cp_02_12.5455.h5
